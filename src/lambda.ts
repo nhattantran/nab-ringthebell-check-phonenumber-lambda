@@ -10,7 +10,7 @@ export const handler: Handler = async (event: ConnectContactFlowEvent, context: 
     console.log('Lambda event payload:', event);
     // TODO: handle records
     if (!isContactFlow(event)) return;
-    const phoneNumber = event.Details.ContactData.SystemEndpoint.Address;
+    const phoneNumber = event.Details.ContactData.CustomerEndpoint.Address;
     console.log('Customer phonenumber is: ', phoneNumber);
     const queryParam: DynamoDB.DocumentClient.QueryInput = {
         TableName: 'nab-climate-change',
